@@ -1,0 +1,190 @@
+@import 'elements';
+body {
+  background-color: #000;
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.portrait-layout {
+  width: 1080px;
+  height: 1920px;
+  position: relative;
+
+  background-image: url(/assets/portrait-bg.jpg);
+  background-repeat: no-repeat;
+
+  .titlebar {
+    top: 496px;
+    position: absolute;
+    width: 1080px;
+    height: 103px;
+  }
+  
+  .searchbar {
+    top: 668px;
+    position: absolute;
+    width: 1080px;
+    font-size: 53pt;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .contentbar {
+    top: 786px;
+    position: absolute;
+    width: 1080px;
+    height: 542px;
+    overflow: hidden;
+
+    .videobg {
+      position: absolute;
+      width: 1080px;
+    }
+
+    .content {
+      position: relative;
+    }
+  }
+
+  .infobar {
+    background-image: url(/assets/infobar-bg.jpg);
+    background-repeat: no-repeat;
+    top: 1327px;
+    position: absolute;
+    width: 1080px;
+    height: 94px;
+    line-height: 94px;
+    font-size: 36pt;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .navbar {
+    bottom: 0;
+    position: absolute;
+    width: 1080px;
+    z-index: 1000;
+    text-align: center;
+  }
+
+  .champions {
+    .titlebar {
+      background-image: url(/assets/champions-title.jpg);
+      background-repeat: no-repeat;
+    }
+  }
+  .impact {
+    .titlebar {
+      background-image: url(/assets/impact-title.jpg);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.coverflow {
+  position: absolute;
+  width: 1080px;
+
+  .carousel {
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    height: 542px;
+
+    .inner {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .item { 
+      pointer-events: none;
+      .thumbnail {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 300px;
+        height: 300px;
+        .rounded(40px);
+      }
+      .title {
+        color: #FFF;
+        padding: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 5px;
+      }
+      .item-inner {
+        pointer-events: all;
+      }
+      padding: 30px;
+      width: 300px;
+      display: block;
+      float:left;
+    }
+    .active .thumbnail {
+      .box-shadow(0 0 25px 15px #447fa4);
+    }
+  }
+}
+
+.player {
+  margin: 23px;
+
+  video {
+    float: left;
+    width: 690px;
+  }
+
+  .info {
+    float: right;
+    width: 275px;
+    padding: 23px;
+    background-color: rgba(0,0,0,0.7);
+    h1, p {
+      font-size: 15px;
+      color: #FFF;
+    }
+
+    p {
+      height: 402px;
+      overflow: auto;
+    }
+
+    h1 {
+      margin-top: 0px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.filter {
+  text-align: center;
+
+  ul {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 730px;
+    height: 542px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+    overflow: auto;
+
+    li {
+      text-align: left;
+      color: #FFF;
+      list-style: none;
+      font-size: 30px;
+      text-transform: uppercase;
+      margin-left: 0px;
+    }
+  }
+}

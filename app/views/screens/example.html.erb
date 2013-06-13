@@ -1,0 +1,11 @@
+<div>
+</div>
+<%= coffee_script_tag do %>
+  $ ->
+    di.router = new di.routers.ExampleRouter()
+    Backbone.history.start()
+    $(document).disableSelection()
+    $(document.body).disableSelection()
+    $(document).on 'dragstart', 'img', (event)->
+      event.preventDefault()
+<% end %>

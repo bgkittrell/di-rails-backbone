@@ -1,0 +1,20 @@
+    <fieldset>
+      <legend><% regular_class_path.each do %><%= regular_class_path.first.camelize %> &gt; <% end %><%= singular_name.camelize %> Details</legend>
+  <% attributes.each do |attribute| -%>
+    <% if attribute.field_type == :text_field and %w( file thumbnail photo video ).include? attribute.name -%>
+      <%%= form.control :<%= attribute.name %>, '<%= attribute.human_name %>' do %>
+        <%%= form.file_field :<%= attribute.name %> %>
+
+        <%% unless @<%= singular_table_name %>.<%= attribute.name %>.blank? %>
+          <div><%%= @<%= singular_table_name %>.<%= attribute.name %> %></div>
+        <%% end %>
+      <%% end %>
+    <% elsif attribute.field_type != :text_field -%>
+      <%%= form.control :<%= attribute.name %>, '<%= attribute.human_name %>' do %>
+        <%%= form.<%= attribute.field_type %> :<%= attribute.name %> %>
+      <%% end %>
+    <% else -%>
+      <%%= form.control :<%= attribute.name %>, '<%= attribute.human_name %>' %>
+    <% end -%>
+  <% end -%>
+    </fieldset>

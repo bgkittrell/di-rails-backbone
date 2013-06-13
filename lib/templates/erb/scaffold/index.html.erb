@@ -1,0 +1,30 @@
+<% module_namespacing do -%>
+<h1><% regular_class_path.each do %><%= regular_class_path.first.camelize %> &gt; <% end %><%= plural_name.camelize %></h1>
+
+<p><%%= button_to 'New <%= singular_name.camelize %>', new_<%= singular_table_name %>_path, :method => :get, :class => 'btn' %></p>
+<table class="<%= table_name %> table table-striped crud" data-table-name="<%= table_name %>">
+  <thead>
+    <tr>
+  <% attributes.each do |attribute| -%>
+    <th><%= attribute.human_name %></th>
+  <% end -%>
+      <th>Modified</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <tr data-id="<%%= <%= singular_table_name %>.id %>">
+  <% attributes.each do |attribute| -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+  <% end -%>
+        <td><%%= <%= singular_table_name %>.updated_at %></td>
+        <td>
+          <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>) do %><i class="icon-edit"></i> edit<%% end %>
+          <%%= link_to <%= singular_table_name %>_path(<%= singular_table_name %>), :method => :delete, :confirm => "Are you sure?" do %><i class="icon-trash"></i> delete<%% end %>
+        </td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>
+<% end -%>
